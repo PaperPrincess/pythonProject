@@ -1,0 +1,40 @@
+ {% extends 'main/base.html' %}
+
+{% block user %}
+
+    <h3>Комментарии</h3>
+            <div class="table table-hover mt-2">
+             <div class="container">
+                 {% if comments %}
+   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Комментарий</th>
+        <th>Дата</th>
+        <th>Автор</th>
+          <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for el in comments %}
+      <tr>
+        <td>{{ el.id_comment }}</td>
+        <td> {{ el.text_comment }}</td>
+        <td>{{ el.date_send }}</td>
+        <td>{{ el.author_com_fk }}</td>
+        <td><a href="{% url 'news_detail' el.id_comment %}" class="btn btn-warning">Читать далее</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+            </div>
+
+    {% else %}
+        <p>У нас нет записей!
+        <a href="{% url 'create_comment' %}" class="btn btn-warning">Создать новую?</a>
+        </p>
+    {% endif %}
+
+{% endblock %}

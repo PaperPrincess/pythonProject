@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block table %}
+<h1>Добавление комментария</h1>
+<form method="post">
+  {% csrf_token %}
+  {{ form.id_comment }}<br>
+  {{ form.text_comment }}<br>
+   {{ form.date_send }}<br>
+   {{ form.author_com_fk }}<br>
+<button type="submit" class="btn btn-success">Обновить</button>
+  <span>{{error}}</span>
+</form>
+{% endblock %}

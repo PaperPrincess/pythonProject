@@ -1,0 +1,15 @@
+{% extends 'main/base.html' %}
+
+{% block table %}
+<h1>Добавление поста</h1>
+<form method="post">
+  {% csrf_token %}
+    {{ form.id_post }}<br>
+    {{ form.title_post }}<br>
+    {{ form.text_post }}<br>
+    {{ form.date_create_post }}<br>
+     {{ form.author_post_fk }}<br>
+<button type="submit" class="btn btn-success">Обновить</button>
+  <span>{{error}}</span>
+</form>
+{% endblock %}

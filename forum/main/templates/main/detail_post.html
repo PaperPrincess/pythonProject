@@ -1,0 +1,14 @@
+{% extends 'main/base.html' %}
+
+{% block user %}
+    <h3>Пост</h3>
+            <div class="feautures">
+                 <p>{{ post.id_post }}</p>
+                 <p> {{ post.title_post }}</p>
+                 <p>{{ post.text_post }}</p>
+                 <p>{{ post.date_create_post }}</p>
+                 <p>{{ post.author_post_fk }}</p>
+                 <a href="{% url 'news_post_del' post.id_post %}" class="btn btn-warning">Удалить</a>
+                <a href="{% url 'news_post_up' post.id_post %}" class="btn btn-info">Редактировать</a>
+ </div>
+{% endblock %}

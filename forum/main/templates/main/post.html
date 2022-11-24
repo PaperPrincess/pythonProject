@@ -1,0 +1,42 @@
+
+{% extends 'main/base.html' %}
+
+{% block user %}
+
+    <h3>Посты</h3>
+            <div class="table table-hover mt-2">
+             <div class="container">
+                 {% if posts %}
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Текст</th>
+        <th>Дата</th>
+        <th>Автор</th>
+        <th> </th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for el in posts %}
+      <tr>
+        <td>{{ el.id_post }}</td>
+        <td> {{ el.title_post }}</td>
+        <td>{{ el.text_post }}</td>
+        <td>{{ el.date_create_post }}</td>
+        <td>{{ el.author_post_fk }}</td>
+        <td><a href="{% url 'news_post' el.id_post %}" class="btn btn-warning">Читать далее</a></td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+</div>
+            </div>
+
+    {% else %}
+        <p>У нас нет записей!</p>
+    <a href="{% url 'create_post' %}" class="btn btn-warning">Создать новую?</a>
+    {% endif %}
+
+{% endblock %}

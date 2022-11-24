@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block user %}
+    <h3>Комментарий</h3>
+            <div class="feautures">
+                 <p>{{ comment.id_comment }}</p>
+                 <p> {{ comment.text_comment }}</p>
+                 <p>{{ comment.date_send }}</p>
+                 <p>{{ comment.author_com_fk }}</p>
+                <a href="{% url 'news_delete' comment.id_comment %}" class="btn btn-warning">Удалить</a>
+                  <a href="{% url 'news_update' comment.id_comment %}" class="btn btn-info">Редактировать</a>
+ </div>
+{% endblock %}
